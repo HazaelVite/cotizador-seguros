@@ -10,7 +10,7 @@ export const Formulario = () => {
           <select
             name="marca"
             id=""
-            className="w-full p-3 bg-white border border-gray-200 rounded-full"
+            className="w-full p-3 bg-white border border-gray-200 rounded"
           >
             <option value="">--- Selecciona Marca ---</option>
             {MARCAS.map(marca => (
