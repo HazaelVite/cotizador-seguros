@@ -4,7 +4,7 @@ import useCotizador from "../hooks/useCotizador"
 import { Error } from "./Error"
 
 export const Formulario = () => {
-  const { datos, handleChangeDatos, error, setError } = useCotizador()
+  const { datos, handleChangeDatos, error, setError, cotizarSeguro } = useCotizador()
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -13,10 +13,10 @@ export const Formulario = () => {
       setError('Todos los campos obligatorios')
       return
     }
-
     setError('')
 
     // TODO 
+    cotizarSeguro(datos)
   }
 
   return (
