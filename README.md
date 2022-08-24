@@ -14,4 +14,3 @@ Puedes pasar el state o funciones desde el componente principal hasta los hijos,
 Cuenta con un hook llamado **useContext**. 
 
 Si se desea crear luibrerías para React, Context es la forma de hacerlo
-### Ejemplo

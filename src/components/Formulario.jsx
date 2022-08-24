@@ -1,9 +1,18 @@
 import { MARCAS, PLANES, YEARS } from "../constants"
 import { Fragment } from "react"
+import useCotizador from "../hooks/useCotizador"
 
 export const Formulario = () => {
+
+  const { modal, cambiarState } = useCotizador()
+  
   return (
     <>
+      <button 
+        onClick={ cambiarState }
+      >
+        Cambiar modal de Context
+      </button>
       <form action="">
         <div className="my-5">
           <label htmlFor="" className="block mb-3 font-bold text-gray-400 uppercase">Marca</label>
