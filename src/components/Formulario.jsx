@@ -3,23 +3,18 @@ import { Fragment } from "react"
 import useCotizador from "../hooks/useCotizador"
 
 export const Formulario = () => {
+  const { datos, handleChangeDatos } = useCotizador()
 
-  const { modal, cambiarState } = useCotizador()
-  
   return (
     <>
-      <button 
-        onClick={ cambiarState }
-      >
-        Cambiar modal de Context
-      </button>
       <form action="">
         <div className="my-5">
           <label htmlFor="" className="block mb-3 font-bold text-gray-400 uppercase">Marca</label>
           <select
             name="marca"
-            id=""
             className="w-full p-3 bg-white border border-gray-200 rounded"
+            onChange={e => handleChangeDatos(e)}
+            value={datos.marca}
           >
             <option value="">--- Selecciona Marca ---</option>
             {MARCAS.map(marca => (
@@ -36,8 +31,9 @@ export const Formulario = () => {
           <label htmlFor="" className="block mb-3 font-bold text-gray-400 uppercase">Año</label>
           <select
             name="year"
-            id=""
             className="w-full p-3 bg-white border border-gray-200 rounded"
+            onChange={e => handleChangeDatos(e)}
+            value={datos.year}
           >
             <option value="">--- Selecciona Año ---</option>
             {YEARS.map(year => (
@@ -55,18 +51,18 @@ export const Formulario = () => {
           <div className="flex gap-3 items-center">
             {PLANES.map(plan => (
               <Fragment key={plan.id}>
-                <input type="radio" name="" value={plan.id} />
-                <label htmlFor="">{plan.nombre}</label>
+                <input type="radio" name="plan" value={plan.id} onChange={e => handleChangeDatos(e)} />
+                <label>{plan.nombre}</label>
               </Fragment>
             ))}
           </div>
         </div>
 
-        <input 
-        type="submit" 
-        value="cotizar" 
-        className="w-full bg-indigo-500 hover:bg-indigo-600 transition-colors text-white cursor-pointer p-3 
-                  rounded uppercase font-bold" 
+        <input
+          type="submit"
+          value="cotizar"
+          className="w-full bg-indigo-500 hover:bg-indigo-600 transition-colors text-white cursor-pointer p-3 
+                  rounded uppercase font-bold"
         />
       </form>
     </>
